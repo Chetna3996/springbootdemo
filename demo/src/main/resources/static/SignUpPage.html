@@ -1,0 +1,291 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Registration</title>
+	<style>
+	table{
+	
+    border-radius: 25px;
+	border-color-black;
+    padding: 20px; 
+     
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: orange;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color:black;
+}
+body  {
+    background-repeat: no-repeat;
+	background-size: auto;
+    background-image: url("signup.jpg");
+    background-size: 1400px 1000px;
+}
+button {
+    
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+	background-color:#ffc04c;
+	border-radius: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    
+	opacity:0.7;
+	width:400;
+	height:390;
+	text-align:center;
+	margin-left:470px;
+}
+	</style>
+	</head>
+	<body>
+	<ul>
+		  <li><a class="active" href="file:///C:/Users/chetna.raut/Documents/HTML,CSS,JS%20ASSIGNMENTS/bookwelcome.html">Home</a></li>
+		  <li><a class="active" href="#home">About</a></li>
+		  <li style="margin-left:1000px"><a class="active" href="file:///C:/Users/chetna.raut/Documents/HTML,CSS,JS%20ASSIGNMENTS/booklogin.html" id="login" >Login</a></li>
+		  <li><a class="active" href="file:///C:/Users/chetna.raut/Documents/HTML,CSS,JS%20ASSIGNMENTS/(book)index.html" id="signup">Sign Up</a></li>
+	
+		  
+	</ul>
+	<h2 align=center style="color:orange">Sign Up </h2>
+	<div align=center >
+		<form style="padding-top:25px" action="bookwelcome.html" onsubmit="return submitForm()">
+			<table>
+			
+			<tr>
+				<td>Name:</td><td><input type="name" id="name" onblur="checkname()"/></td>
+				<td><p id="namecheck"></p></td>
+				
+			</tr>
+			<tr>
+				<td>Email:</td><td><input type="email" id="email" onblur="checkemail()"/></td>
+				<td><p id="mailcheck"></p></td>
+			</tr>
+			<tr>
+				<td>Password:</td><td><input type="password" id="passd" onblur="checkpass()"/></td>
+				<td><p id="passcheck"></p></td>
+			</tr>
+			<tr>
+				<td>Confirm Password:</td><td><input type="password" id="passd2" onblur="confpass()" /></td>
+				<td><p id="confpass"></p></td>
+			</tr>
+			</table>
+			
+
+                  <button type="reset" class="btn btn-primary" >Reset</button>
+                  <button  type='submit' style="">Register</button>
+                  
+          
+			
+		</form>	
+	</div>
+	
+	
+	
+	<script>
+	//var flag1=0,flag2=0,flag3=0,flag4=0,flag5=0;
+	function checkname()
+	{
+	
+	var x = document.getElementById("name").value;
+	document.getElementById("namecheck").innerHTML=" ";
+	if(/(^[A-Za-z 0-9 \s])([^@!_-])+$/.test(x))
+					{ 
+							//wrong.style.visibility="hidden";
+							//alert("First Name Correct");
+							//flag1=1;
+							//right.style.visibility="visible";
+							document.getElementById("namecheck").innerHTML="<img src='correct.png'width=20 height=20 >";
+							
+					}
+						else
+					{ 
+						  //alert("No ‘@’,’!’,’_’ & ‘-’ rest all special characters allowed in Name"); 
+						  //document.getElementById("incorrectFName").innerHTML="* No @,!,_ & - rest all special characters allowed *";
+						  //flag1=0;
+						  document.getElementById("namecheck").innerHTML="<img src='incorrect.png' width=20 height=20 >No @, ! , _  & - rest all special characters allowed ";
+						  
+					}
+	
+	}
+	function checkemail()
+	{
+	var mail= document.getElementById("email").value;
+	document.getElementById("mailcheck").innerHTML=" ";
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+								{			//wrong.style.visibility="hidden";
+											//alert("valid email address!");
+											//flag5=1;
+											document.getElementById("mailcheck").innerHTML="<img src='correct.png'width=20 height=20 >";
+								}
+						else{				
+						//alert("You have entered an invalid email address!");
+						//document.getElementById("incorrectEmail").innerHTML=" * Please enter valid email address *";
+						//flag5=0;
+						document.getElementById("mailcheck").innerHTML="<img src='incorrect.png' width=20 height=20 >  You have entered an invalid email address!";
+						}
+					
+	
+	
+	
+	}
+	function checkpass()
+	{
+	var passd= document.getElementById("passd").value;
+	document.getElementById("passcheck").innerHTML=" ";
+	//alert(passd);
+	var d=passd.charAt(0).toUpperCase();
+	if(length<8&&(passd.charAt(0)!=d))
+								{
+								//wrong.style.visibility="visible";
+								//alert(" Password must Contain First Character in Capital, min 8 characters and Number ");
+								//document.getElementById("incorrectPass").innerHTML=" * Password must Contain First Character in Capital, min 8 characters and Number *";
+								//flag3=0;
+								document.getElementById("passcheck").innerHTML="<img src='incorrect.png' width=20 height=20 >Password must Contain First Character in Capital, min 8 characters and Number";
+								}
+						else
+							{
+							//wrong.style.visibility="hidden";
+							//alert("Valid password");
+							//flag3=1;
+							//right.style.visibility="visible";
+							document.getElementById("passcheck").innerHTML="<img src='correct.png'width=20 height=20 >";
+							}
+	
+	}
+	function confpass()
+	{
+	var pass= document.getElementById("passd").value; 
+	var pass2= document.getElementById("passd2").value; 
+	document.getElementById("confpass").innerHTML=" ";
+	if(pass==pass2)
+						{
+						//wrong.style.visibility="hidden";
+						//alert("password  matched");
+						//flag4=1;
+						//right.style.visibility="visible";
+						document.getElementById("confpass").innerHTML="<img src='correct.png'width=20 height=20 >";
+						}
+						else{
+						document.getElementById("confpass").innerHTML="<img src='incorrect.png'width=20 height=20 >Password didn't matched,Please enter again";
+						//wrong.style.visibility="visible";
+						//alert("incorrect password");
+						//ssdocument.getElementById("notmatched").innerHTML="* Password didn't matched,Please enter again*";
+						//flag4=0;
+						}
+	
+	}
+	function submitForm()
+						{
+						var flag1=0,flag2=0,flag3=0,flag4=0,flag5=0;
+						var name = document.getElementById("name").value;
+						var pass= document.getElementById("passd").value; 
+						var pass2= document.getElementById("passd2").value; 
+						var mail= document.getElementById("email").value;
+						//alert(flag1);
+						if(/(^[A-Za-z 0-9 \s])([^@!_-])+$/.test(name))
+							{ 
+								//alert("First Name Correct");
+								flag1=1;
+							}
+						else
+						  { 
+								//alert("No ‘@’,’!’,’_’ & ‘-’ rest all special characters allowed in Name"); 
+								//document.getElementById("incorrectFName").innerHTML="* No @,!,_ & - rest all special characters allowed *";
+								flag1=0;
+								alert("No @,!,_ & - rest all special characters allowed");
+						  
+						  }
+						//alert(flag1+"name")
+						var length=pass.length;
+						var d=pass.charAt(0).toUpperCase();
+						if(length<8&&(passd.charAt(0)!=d))
+								{
+									alert(" Password must Contain First Character in Capital, min 8 characters and Number ");
+									//document.getElementById("incorrectPass").innerHTML=" * Password must Contain First Character in Capital, min 8 characters and Number *";
+									flag3=0;
+								}
+						else
+								{
+									//alert("Valid password");
+									flag3=1;
+								}
+						//alert(flag3+"pass");
+						if(pass==pass2)
+								{
+									//alert("password  matched");
+									flag4=1;
+								}
+						else	
+								{
+									alert("Password didn't matched , Please enter again");
+									//document.getElementById("notmatched").innerHTML="* Password didn't matched,Please enter again*";
+									flag4=0;
+								}
+						//alert(flag4+"confpass");
+						if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+								{
+											//alert("valid email address!");
+											flag5=1;
+								}
+						else{				
+											alert("You have entered an invalid email address!");
+											//document.getElementById("incorrectEmail").innerHTML=" * Please enter valid email address *";
+											flag5=0;
+								}
+					
+					
+					
+					//alert(flag5+"mail");
+					if(flag1==1&&flag3==1&&flag4==1&&flag5==1)
+					{
+					alert("You have successfully registered!!")
+					var info = {"name":name,"email":mail,"password":pass};
+					var myJSON = JSON.stringify(info);
+					console.log(myJSON);
+					localStorage.setItem('info',myJSON);
+					}
+					else{
+						alert("Please enter valid information");
+						return false;
+					}
+							
+							
+								}
+								
+	</script>
+	
+</body>
+</html>

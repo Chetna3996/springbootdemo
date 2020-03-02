@@ -11,6 +11,7 @@ import com.spring.pojoclasses.Book;
 import com.spring.services.BookServices;
 
 @RestController
+@GetMapping("/spring")
 public class BookController {
 
 	@Autowired
